@@ -19,9 +19,15 @@ func Test_GetXML(t *testing.T) {
 
 func Test_GetCurrencies(t *testing.T) {
 	currencies:=GetCurrencies()
-	// fmt.Printf("%+v\n",GetCurrencies())
-	// out, _ := xml.MarshalIndent(GetCurrencies(), " ", "  ")
-    fmt.Println(currencies.pretty())
+	fmt.Println(currencies.pretty())
 
-	// fmt.Printf("%+v\n",GetXML("https://www.tcmb.gov.tr/kurlar/today.xml"))
+	// fmt.Printf("%+v\n",currencies.Currency[0])
+
+}
+
+func Test_GetUSD(t *testing.T) {
+	usd:=GetUSD()
+	fmt.Println(usd.pretty())
+	// fmt.Printf("%+v\n",currencies.Currency[0])
+
 }

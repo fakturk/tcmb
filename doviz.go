@@ -59,8 +59,35 @@ func GetCurrencies() tarih_Date{
 	return result
 }
 
+func GetUSD() currency{
+	usd:=GetCurrenyByName("USD")
+	return usd
+}
+
+func GetCurrenyByName(name string) currency{
+	currencies:=GetCurrencies()
+	// usd:=currencies.Currency[0]
+	var curr currency
+	for _,c:=range currencies.Currency{
+		if(c.Kod==name){
+			fmt.Printf("%+v\n",c)
+			curr= c
+		}
+		
+	}
+	return curr
+}
+
 func (tD *tarih_Date) pretty() string{
 	out, err:= xml.MarshalIndent(tD, " ", "  ")
+	if err!=nil{
+		fmt.Printf("error on pretty: %+v\n",err)
+	}
+	return string(out)
+}
+
+func (c *currency) pretty() string{
+	out, err:= xml.MarshalIndent(c, " ", "  ")
 	if err!=nil{
 		fmt.Printf("error on pretty: %+v\n",err)
 	}
