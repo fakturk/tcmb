@@ -18,3 +18,11 @@ type currency struct {
 	CrossRateUSD    string `xml:"CrossRateUSD"`
 	CrossRateOther  string `xml:"CrossRateOther"`
 }
+
+type tarih_Date struct {
+	XMLName  xml.Name `xml:"Tarih_Date"`
+	Tarih    string   `xml:"Tarih,attr"`
+	Date     string   `xml:"Date,attr"`
+	BultenNo string   `xml:"Bulten_No,attr"`
+	Currency []currency
+}
