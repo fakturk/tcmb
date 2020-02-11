@@ -47,3 +47,24 @@ func GetXML(url string) ([]byte, error) {
   
 	return data, nil
   }
+
+func GetCurrencies() tarih_Date{
+	var result tarih_Date
+	if xmlBytes, err := GetXML("https://www.tcmb.gov.tr/kurlar/today.xml"); err != nil {
+		fmt.Printf("Failed to get XML: %v", err)
+	  } else {
+		xml.Unmarshal(xmlBytes, &result)
+		// fmt.Printf("%+v\n",result)
+	  }
+	return result
+}
+
+func (tD *tarih_Date) pretty() string{
+	out, err:= xml.MarshalIndent(tD, " ", "  ")
+	if err!=nil{
+		fmt.Printf("error on pretty: %+v\n",err)
+	}
+	return string(out)
+}
+
+

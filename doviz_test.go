@@ -16,3 +16,12 @@ func Test_GetXML(t *testing.T) {
 	  }
 	// fmt.Printf("%+v\n",GetXML("https://www.tcmb.gov.tr/kurlar/today.xml"))
 }
+
+func Test_GetCurrencies(t *testing.T) {
+	currencies:=GetCurrencies()
+	// fmt.Printf("%+v\n",GetCurrencies())
+	// out, _ := xml.MarshalIndent(GetCurrencies(), " ", "  ")
+    fmt.Println(currencies.pretty())
+
+	// fmt.Printf("%+v\n",GetXML("https://www.tcmb.gov.tr/kurlar/today.xml"))
+}
